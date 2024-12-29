@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Berita</title>
+    <link rel="shortcut icon" href="{{asset('img/img/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/view_berita.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -80,7 +81,7 @@
                                 <h2>{{ $latestNews->judul }}</h2>
                                 <p>{!! Str::limit($latestNews->konten, 50, '...') !!}</p>
                                 <time>{{ $latestNews->created_at->format('d M Y') }}</time>
-                                <span>| Kategori</span>
+                                <span>| Kategori {{$latestNews->kategori}}</span>
                             </div>
                         </a>
                     </div>
@@ -92,7 +93,7 @@
                                 <h3>{{ $berita->judul }}</h3>
                                 <p>{!! Str::limit($berita->konten, 50, '...') !!}</p>
                                 <time>{{ $berita->created_at->format('d M Y') }}</time>
-                                <span>| Kategori</span>
+                                <span>| Kategori {{$berita->kategori}}</span>
                             </a>
                         </div>
                         @endforeach
@@ -103,10 +104,12 @@
                     <div class="story">
                         <a href="{{ route('berita.show', $berita->id)}}">
                             <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
+                        </a>
+                        <a href="{{ route('berita.show', $berita->id)}}">
                             <h3>{{ $berita->judul }}</h3>
-                            <p>{!! Str::limit($berita->konten, 50, '...') !!}</p>
+                            <p>{!! Str::limit($berita->konten, 100, '...') !!}</p>
                             <time>{{ $berita->created_at->format('d M Y') }}</time>
-                            <span>| Kategori</span>
+                            <span>| Kategori {{$berita->kategori}}</span>
                         </a>
                     </div>
                     @endforeach

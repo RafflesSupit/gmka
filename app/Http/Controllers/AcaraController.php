@@ -58,6 +58,7 @@ class AcaraController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
+            'kategori' => 'required|string|max:50',
             'gambar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5068',
         ]);
 
@@ -88,6 +89,7 @@ class AcaraController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'konten' => 'required|string',
+            'kategori' => 'required|string|max:50',
             'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5068',
         ]);
         $config = HTMLPurifier_Config::createDefault();

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="{{ asset('img/favicon.png') }}" rel="icon" />
+    <link href="{{ asset('img/favicon.png') }}" rel="apple-touch-icon" />
 
     <link rel="shortcut icon" href="{{asset('img/img/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
@@ -21,13 +23,13 @@
                     <div class="logo bars">
                         <div class="bar">
                             <i class="fa fa-bars"></i>
-                    </div>
+                        </div>
                     <h3>GMKA</h3>
                     </div>
-                    <div class="menu active">
+                    <div class="menu">
                         <div class="close">
                             <i class="fa fa-close"></i>
-                    </div>
+                        </div>
                         <ul>
                             <li><a href="{{ auth()->check() ? url('/dashboard') : url('/') }}">home</a></li>
                             <li>
@@ -72,7 +74,7 @@
                   </div>
             </div>
                   
-         </div>
+        </div>
         <section class="home section" id="home">
             <div class="home__container container grid">
                 <div class="home__data">
@@ -135,6 +137,43 @@
             </div>
         </section>
 
+        <section class="featured section" id="featured">
+            <h2 class="section__title">
+                Acara Terkini
+            </h2>
+            
+            <div class="featured__container container">
+                <div class="featured__swiper swiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($acaras as $acara)
+                        <article class="featured__card swiper-slide">
+                            <a href="{{route('acara.show', $acara->id)}}">
+                                <img src="{{ asset('storage/' . $acara->gambar) }}" alt="gambar acara" class="featured__img">
+                            </a>
+                            <h2 class="featured__title">{{ $acara->judul }}</h2>
+                            <div class="featured__price">
+                                <p class="featured__price">{!! Str::limit($acara->konten, 60, '...') !!}</p>
+                                @if ($acara->created_at)
+                                    <p class="featured__pricee">{{ $acara->created_at->format('d M Y') }}</p>
+                                @else
+                                    <p class="featured__pricee">Tanggal tidak tersedia</p>
+                                @endif
+                            </div>
+                            
+                        </article>
+                        @endforeach
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
+                    <div class="swiper-button-next">
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <a href="{{route('acara.view')}}"><button class="btn-70">View All</button></a>
+                </div>
+            </div>
+            
+        </section>
         <section class="featured section" id="featured">
             <h2 class="section__title">
                 Berita Terkini

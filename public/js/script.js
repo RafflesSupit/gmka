@@ -53,9 +53,11 @@ window.onload = function() {
 
 document.querySelector('.fa-bars').addEventListener('click', function() {
     document.querySelector('.menu').classList.add('active');
+    document.body.classList.add('no-scroll');
 });
 document.querySelector('.fa-close').addEventListener('click', function() {
     document.querySelector('.menu').classList.remove('active');
+    document.body.classList.remove('no-scroll');
 });
 
 

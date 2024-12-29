@@ -41,6 +41,11 @@ html::-webkit-scrollbar-thumb{
     background-color: var(--main-color);
 }
 
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+}
+
 .footer{
     padding: 4rem 4%;
 }
@@ -117,6 +122,7 @@ html::-webkit-scrollbar-thumb{
 .home .home-box nav .menu ul li a {
     color: var(--white);
     font-weight: 400;
+    font-size: 18px;
 }
 
 .home .home-box nav .menu ul li a:hover {
@@ -290,6 +296,10 @@ main {
     flex-direction: column;
     width: 80%;
 }
+.left-section a,
+.right-section a{
+    color: #1E293B;
+}
 
 .main-story {
     background: white;
@@ -300,7 +310,7 @@ main {
 }
 
 .main-story img {
-    max-width: 800px;
+    max-width: 1000px;
     max-height: 500px;
     object-fit: cover;
 }
@@ -402,6 +412,8 @@ main {
 
 .pagination {
     margin-top: 1rem;
+    width: 100%;
+    font-size: 12px;
 }
 .location {
     border: .2rem solid var(--main-color);
@@ -565,12 +577,11 @@ main {
     }
   
     .home .home-box nav .menu.active {
-        display: block;
         position: absolute;
         left: -1.5rem;
         top: -1.5rem;
-        width: 100vw;
-        height: 100vh;
+        width: 105vw;
+        height: 220vh;
         background: rgb(0 0 0/90%);
         display: flex;
         align-items: center;
@@ -628,6 +639,7 @@ main {
     
     .home .home-box nav .menu:not(.active) {
         display: none;
+        position: fixed;
     }
     
     .home .home-box nav .logo .bar {
@@ -635,11 +647,11 @@ main {
     }
     .home .home-box nav .menu.active {
         display: block;
-        position: absolute;
+        position: fixed;
         left: -1.5rem;
         top: -1.5rem;
-        width: 100vw;
-        height: 100vh;
+        width: 103vw;
+        height: 105vh;
         background: rgb(0 0 0/85%);
         display: flex;
         align-items: center;
@@ -695,23 +707,78 @@ main {
     }
 }
 
-/* @media (max-width:450px){
+@media (max-width:450px){
 
     html{
         font-size: 50%;
     }
 
-    .home .home-box .content h1{
-        font-size: 2rem;
+    .content{
+        flex-direction: column;
     }
 
-    .home .home-box .content h4{
-        font-size: 1rem;
+    .left-section{
+        width: 100%;
     }
 
-    .location .container #maps {
-        width: 150px;
-        height: 100px;
+    .below-main{
+        flex-wrap: wrap;
+        margin: 2rem 0;
+        align-items: center;
+        justify-content: center;
     }
 
-} */
+    .below-main .story{
+        width: 140px;
+        height: 200px;
+    }
+    .below-main .story img{
+        width: 140px;
+        height: 80px;
+    }
+
+    .right-section{
+        width: 100%;
+        height: 50%;
+    }
+    .right-section .story{
+        display: flex;
+    }
+    .right-section .story img{
+        width: 120px;
+        height: 65px;
+    }
+    .right-section .story h3{
+        font-size: 8px;
+        line-height: 1;
+    }
+    .right-section .story p,
+    .right-section .story time,
+    .right-section .story span{
+        font-size: 6px;
+    }
+
+    .main-story img{
+        width: 300px;
+        max-height: 150px;
+    }
+
+    .pagination{
+        font-size: 8px;
+        
+    }
+
+}
+
+@media (max-width:320px){
+
+    
+    .below-main .story{
+        width: 120px;
+        height: 190px;
+    }
+    .below-main .story img{
+        width: 120px;
+        height: 80px;
+    }
+}

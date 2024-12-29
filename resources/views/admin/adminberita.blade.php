@@ -6,6 +6,8 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/adminacara.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{asset('img/img/favicon.png')}}" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>AdminPanel</title>
 </head>
@@ -71,7 +73,7 @@
                                 <form action="{{ route('adminberita.delete', $berita->id) }}" method="POST" class="inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="delete-button">Delete</button>
+                                    <button type="button" class="delete-button" onclick="confirmDelete(this)">Delete</button>
                                 </form>
                             </div>
                         </div>

@@ -447,6 +447,12 @@ main {
         padding: 2rem;
         text-align: center;
     }
+
+    .facility-list{
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
     .facility img{
         width: 300px;
         align-items: center;

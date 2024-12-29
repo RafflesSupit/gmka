@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acara</title>
+    <link rel="shortcut icon" href="{{asset('img/img/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/view_berita.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -82,9 +83,10 @@
                             <img src="{{ asset('storage/' . $latestAcara->gambar) }}" alt="Gambar Acara Utama">
                             <div class="story-content">
                                 <h2>{{ $latestAcara->judul }}</h2>
-                                {!! Str::limit($latestAcara->konten, 20, '...') !!}
+                                {!! Str::limit($latestAcara->konten, 80, '...') !!}
+                                <br>
                                 <time>{{ $latestAcara->created_at->format('d M Y') }}</time>
-                                <span>| Kategori</span>
+                                <span>| Kategori {{$latestAcara->kategori}}</span>
                             </div>
                         </a>
                     </div>
@@ -94,9 +96,9 @@
                             <a href="{{ route('acara.show', $acara->id)}}">
                                 <img src="{{ asset('storage/' . $acara->gambar) }}" alt="Gambar Berita">
                                 <h3>{{ $acara->judul }}</h3>
-                                {!! Str::limit($acara->konten, 20, '...') !!}
+                                {!! Str::limit($acara->konten, 50, '...') !!}
                                 <time>{{ $acara->created_at->format('d M Y') }}</time>
-                                <span>| Kategori</span>
+                                <span>| Kategori {{$acara->kategori}}</span>
                             </a>
                         </div>
                         @endforeach
@@ -107,10 +109,12 @@
                     <div class="story">
                         <a href="{{ route('acara.show', $acara->id)}}">
                             <img src="{{ asset('storage/' . $acara->gambar) }}" alt="Gambar Berita">
+                        </a>
+                        <a href="{{ route('acara.show', $acara->id)}}">
                             <h3>{{ $acara->judul }}</h3>
-                            {!! Str::limit($acara->konten, 150, '...') !!}
+                            <p>{!! Str::limit($acara->konten, 100, '...') !!}</p>
                             <time>{{ $acara->created_at->format('d M Y') }}</time>
-                            <span>| Kategori</span>
+                            <span>| Kategori {{$acara->kategori}}</span>
                         </a>
                     </div>
                     @endforeach

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/adminacara.css') }}"/>
+    <link rel="shortcut icon" href="{{asset('img/img/favicon.png')}}" type="image/x-icon">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
     <title>Edit Acara</title>
 </head>
@@ -69,6 +70,13 @@
                         <label for="judul">Judul Acara:</label>
                         <input type="text" id="judul" name="judul" value="{{ $acara->judul }}">
                         @error('judul')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Kategori Acara:</label>
+                        <input type="text" id="kategori" name="kategori" value="{{ $acara->kategori }}">
+                        @error('kategori')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
